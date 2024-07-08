@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            outline: 0;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        #ai-window {
+            height: 550px;
+            overflow-y: scroll;
+        }
+
+        #ai-window>div {
+            margin: 15px 20px;
+            display: flex;
+            gap: 10px;
+        }
+
+        #chat-logo {
+            min-width: 50px;
+            max-height: 50px;
+        }
+
+        #ai-logo,
+        #user-logo {
+            min-width: 100%;
+            min-height: 100%;
+            display: flex;
+            border-radius: 50%;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #ai-logo {
+            background-color: orange;
+        }
+
+        #user-logo {
+            background-color: bisque;
+        }
+
+        #chat-text {
+            padding: 8px 16px;
+            border: 1px grey solid;
+            border-radius: 20px;
+        }
+
+        #user-chat {
+            flex-direction: row-reverse;
+        }
+
+        #ai,
+        #user {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        #poster {
+            width: 200px;
+            margin: 10px 0;
+            border: 1px solid grey;
+        }
+
+        #chat-window {
+            padding: 20px;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            height: 600px;
+            width: 600px;
+            max-height: 90vh;
+            border: 1px solid black;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        #poster>img {
+            width: 100%;
+        }
+
+        #notice {
+            border: 1px solid grey;
+            padding: 6px 10px;
+            border-radius: 10px;
+            font-weight: 650;
+        }
+
+        #user-input {
+            display: flex;
+            width: auto;
+            height: max-content;
+        }
+
+        #user-input>input {
+            width: 100%;
+            border: 1px solid black;
+            padding: 10px;
+            border-radius: 8px 0 0 8px;
+        }
+
+        #user-input>button {
+            padding: 10px;
+            border-radius: 0 8px 8px 0;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="chat-window">
+        <div id="notice">* Disclaimer! This movie suggestion AI is in experimental phase and may produce wrong result.*</div>
+        <div id="ai-window">
+            <div id="user-chat">
+                <div id="chat-logo">
+                    <div id="user-logo">U</div>
+                </div>
+                <div id="user">
+                    <div id="chat-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officiis autem aut
+                        consectetur a ipsa id? Reiciendis, veritatis debitis obcaecati, dolorem nam iusto facere quos
+                        voluptas voluptate id ea excepturi nostrum.</div>
+                </div>
+            </div>
+            <div id="ai-chat">
+                <div id="chat-logo">
+                    <div id="ai-logo">AI</div>
+                </div>
+                <div id="ai">
+                    <div id="chat-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officiis autem aut
+                        consectetur a ipsa id? Reiciendis, veritatis debitis obcaecati, dolorem nam iusto facere quos
+                        voluptas voluptate id ea excepturi nostrum.</div>
+                    <div id="chat-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officiis autem aut
+                        consectetur a ipsa id? Reiciendis, veritatis debitis obcaecati, dolorem nam iusto facere quos
+                        voluptas voluptate id ea excepturi nostrum.
+                        <div id="poster"><img src="poster.jpg" alt=""></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <form id="user-input">
+            <input type="text" placeholder="Enter your query">
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        outline: 0;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+
+    img {
+        height: auto;
+        width: auto;
+        border-radius: 10px;
+    }
+
+    body {}
+
+    #moviedetails {
+        background-image: url(poster.jpg);
+        background-position: fixed;
+        background-size: cover;
+    }
+
+    #backshade {
+        display: flex;
+        flex-direction: row;
+        margin: 0 5vw;
+        padding: 10vh 0;
+        gap: 20px;
+    }
+
+    #backdropshade {
+        min-height: 100vh;
+        background: linear-gradient(rgba(28, 28, 28, 0.333), rgba(28, 28, 28, 0.726), rgb(28, 28, 28), rgb(0, 0, 0));
+        backdrop-filter: blur(15px);
+    }
+
+    #poster {
+        width: min-content;
+    }
+
+    #movie-name {
+        font-size: 40px;
+        font-weight: 640;
+    }
+
+    #movie-pre-details {
+        font-size: small;
+    }
+
+    #poster-details {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        color: white;
+        justify-content: center;
+    }
+
+    #base-details {
+        display: flex;
+        gap: 25px;
+    }
+
+    #total-ratings {
+        padding: 0 20px;
+        border-left: 1px solid grey;
+        border-right: 1px solid grey;
+    }
+
+    #star-cnt,
+    #total-rating-num {
+        padding-bottom: 8px;
+        font-size: x-large;
+        font-weight: 630;
+    }
+
+    #star-text,
+    #total-rating-text {
+        font-size: small;
+    }
+
+    #purchase-btn {
+        padding: 15px;
+        background-color: rgb(37, 153, 255);
+        cursor: pointer;
+        border-radius: 8px;
+        display: flex;
+        gap: 15px;
+    }
+
+    #purchase-btn:active {
+        background-color: rgb(0, 132, 219);
+    }
+
+    #more {
+        width: auto;
+        background-color: black;
+        color: white;
+    }
+
+    #additional-details {
+        width: auto;
+        height: auto;
+        margin: 0 5vw;
+        background-color: rgb(33, 33, 33) !important;
+        border-radius: 8px;
+    }
+
+    #additional-details-header {
+        font-size: 20px;
+        padding: 10px 20px;
+        border-bottom: 1px solid grey;
+    }
+
+    #additional-details-content {
+        padding: 12px 20px;
+    }
+</style>
+
+<body>
+    <main id="moviedetails">
+        <div id="backdropshade">
+            <div id="backshade">
+                <div id="poster"><img src="poster.jpg" alt=""></div>
+                <div id="poster-details">
+                    <div id="movie-name">BHOOT</div>
+                    <div id="movie-pre-details">
+                        <span id="released-year">2016</span>
+                        <span>•</span>
+                        <span id="production">Coke Stdio</span>
+                    </div>
+                    <div id="base-details">
+                        <div id="star-rating">
+                            <div id="star-cnt">
+                                <span id="star-num">4.4</span>
+                                <span id="star-logo">&bigstar;</span>
+                            </div>
+                            <div id="star-text">Average</div>
+                        </div>
+                        <div id="total-ratings">
+                            <div id="total-rating-num">36K</div>
+                            <div id="total-rating-text">Ratings</div>
+                        </div>
+                        <div id="movie-rated"></div>
+                    </div>
+                    <div id="short-description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eius unde
+                        ipsum
+                        voluptates vel laudantium omnis tempora sapiente voluptatum numquam doloribus, libero tempore
+                        harum
+                        perferendis praesentium, iusto cumque minus minima. Corporis.
+                    </div>
+                    <button id="purchase-btn">
+                        <div id="purchase">Buy</div>
+                        <div id="pricing">
+                            <div id="prev-price"><del>2800</del></div>
+                            <div id="current-price">1980</div>
+                        </div>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="more">
+            <div id="additional-details">
+                <div id="additional-details-header">Additional Details</div>
+                <div id="additional-details-content">
+                    
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
