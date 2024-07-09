@@ -1,6 +1,7 @@
 import React from 'react'
 import Login from '../components/Login'
 import Chatbot from '../components/Chatbot'
+import TopNav from '../components/TopNav'
 
 function Home() {
 
@@ -50,6 +51,7 @@ function Home() {
 
   return (
     <React.Fragment>
+      <TopNav />
       <Login />
       <Chatbot />
     </React.Fragment>

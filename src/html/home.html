@@ -3,6 +3,11 @@
 
 <head>
     <meta charset="UTF-8">
+    <link rel='stylesheet'
+        href='https://cdn-uicons.flaticon.com/2.4.2/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.4.2/uicons-bold-rounded/css/uicons-bold-rounded.css'>
+    <link rel='stylesheet'
+        href='https://cdn-uicons.flaticon.com/2.4.2/uicons-solid-rounded/css/uicons-solid-rounded.css'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
@@ -15,24 +20,44 @@
         font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     }
 
+    body {
+        background-color: #242424;
+        max-height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+
     #nav {
-        height: 60px;
+        max-height: 60px;
+        min-height: 60px;
         width: 100vw;
         /* background: linear-gradient(90deg, transparent, rgba(240, 255, 255, 0.128), transparent); */
         backdrop-filter: blur(10px);
-        display: inline-flex;
+        display: flex;
         font-weight: 600;
         transition: all 0.3s ease-in;
+        position: static;
+        justify-content: space-between;
+        top: 0;
         z-index: 8;
-        background-color: #424242;
+        background-color: #242424;
+        color: #bebebe;
+    }
+
+    #nav>div:last-child {
+        height: auto;
+        display: flex;
+        align-items: center;
+        margin-right: 10px;
+        cursor: pointer;
     }
 
     #logo {
         width: 10vw;
+        padding-left: 10px;
     }
 
     #search-bar {
-        width: auto;
         height: 100%;
         display: inline-flex;
         flex-direction: row;
@@ -56,15 +81,18 @@
 
 
     #sidenav {
-        height: 100vh;
-        width: auto;
+        background-color: #242424;
+        height: auto;
         /* background: linear-gradient(90deg, transparent, rgba(240, 255, 255, 0.128), transparent); */
         backdrop-filter: blur(10px);
         display: flex;
+        position: fixed;
         flex-direction: column;
         font-weight: 600;
+        width: 80px;
+        /* max-width: 80px; */
         transition: all 0.3s ease-in;
-        z-index: 8;
+        z-index: 3;
     }
 
 
@@ -72,59 +100,529 @@
         height: 100%;
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: flex-start;
         align-items: center;
-    }
-
-    #sidenav-icons {
-        width: 10vw;
+        font-size: x-small;
+        color: rgba(240, 248, 255, 0.532);
+        gap: 5px;
     }
 
     #sidenav-links>div {
-        padding: 10px 20px;
+        width: 70px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 6px;
+        padding: 10px 0;
+    }
+
+    #sidenav-links>div>div:first-child {
+        font-size: x-large;
+    }
+
+    #sidenav-links>div {
         cursor: pointer;
         transition: all 0.15s;
     }
 
     #sidenav-links>div:hover {
-        border-bottom: 2px solid white;
+        background-color: #6b6b6b;
+    }
+
+    #search-bar {
+        min-width: 200px;
+        width: 40vw;
+        position: fixed;
+        padding-top: 12px;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    #history-suggest {
+        background-color: #6b6b6b;
+        color: #bebebe;
+        display: none;
+        width: 100%;
+        border-radius: 0 0 5px 5px;
+    }
+
+    #search-bar>input[type=search]::placeholder {
+        color: #bebebe;
+    }
+
+    #search-bar>input[type=search] {
+        padding: 8px 10px;
+        border-radius: 5px;
+        width: 100%;
+        background-color: rgb(62, 62, 62);
+        color: #e3e3e3;
+        border-bottom: rgb(89, 89, 89) 2px solid;
+    }
+
+    #search-bar>input[type=search]:focus {
+        border-radius: 5px 5px 0 0;
+        background-color: rgb(70, 70, 70);
+        border-bottom: rgb(0, 183, 255) 2px solid;
+    }
+
+    #history-suggest>div {
+        display: flex;
+        align-items: center;
+        width: auto;
+        gap: 8px;
+        padding: 8px;
+        margin: 3px 5px;
+    }
+
+    #history-suggest>div>i {
+        padding: 8px 12px;
+        border-radius: 6px;
+        background-color: #242424;
+    }
+
+    #home-main {
+        height: 100vh;
+        position: static;
+        overflow-x: hidden;
+    }
+
+    #movies-section {
+        border-radius: 10px 0 0 0;
+        margin-left: 80px;
+        height: auto;
+        padding: 10px 0 0 0;
+        scrollbar-width: thin;
+        background-color: #424242;
+    }
+
+    #movies-section {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    #movies-section>div {
+        margin: 10px 20px;
+        height: 300px;
+        display: flex;
+        background-color: #bebebe;
+        width: auto;
+        justify-content: space-between;
+        border-radius: 6px;
+        display: flex;
+    }
+
+    #movies-section>div:last-child {
+        margin-bottom: 80px;
+    }
+
+    #movies-section>div>div {}
+
+    #movies-section>div>div:first-child {
+        min-width: max(200px, 25%) !important;
+    }
+
+    #mv-cards-all {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 70%;
+    }
+
+    #mv-cards-all>div:first-child {
+        margin-right: 10px;
+    }
+
+    #mv-cards {
+        display: flex;
+        margin: 10px 3px;
+        gap: 10px;
+        overflow-x: scroll;
+        scrollbar-width: none;
+        width: auto;
+    }
+
+    #mv-cards>div {
+        height: 250px;
+        min-width: 167px;
+        border-radius: 6px;
+        background-color: #c42626;
+        background-image: url(../imgs/poster.jpg);
+        background-position: center;
+        background-size: contain;
+    }
+
+    #mv-cards>div>div {
+        border-radius: 6px;
+        height: 100% !important;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 0 0 0 10px;
+        font-weight: 620;
+        color: #ffffff;
+        background: linear-gradient(#ffffff00, #ffffff00, #ffffff00, #7d7d7d92, #7d7d7d);
+    }
+
+    #mv-slide-icons {
+        display: flex;
+        justify-content: flex-end;
+        color: #424242;
+        gap: 10px;
     }
 </style>
 
 <body>
     <div id="nav">
         <div id="logo" style="display: flex; align-items: center;">
-            <div id="navlogo" style="cursor: pointer;" onclick="location.href = '#'"></div>
+            <div id="navlogo" style="cursor: pointer;" onclick="location.href = '#'">Movie App</div>
         </div>
-        <div id="search-bar">
-            <input type="search" name="" id="">
-        </div>
-        <div id="nav-icons"
-            onclick="document.getElementById('nav-links').style.transition = 'all 0.3s'; document.getElementById('nav-links').style.transform = 'translateX(-100%)';">
-        </div>
+        <form id="search-bar">
+            <input type="search" name="" id="" placeholder="Search for a movie"
+                onfocus="document.getElementById('history-suggest').style.display = 'block'"
+                onblur="document.getElementById('history-suggest').style.display = 'none'">
+            <div id="history-suggest">
+                <div id="search1"><i class="fi fi-br-search"></i>Demo 1</div>
+                <div id="search2"><i class="fi fi-br-search"></i>Demo 2</div>
+                <div id="search3"><i class="fi fi-br-search"></i>Demo 3</div>
+                <div id="search4"><i class="fi fi-br-search"></i>Demo 4</div>
+                <div id="search5"><i class="fi fi-br-search"></i>Demo 5</div>
+            </div>
+        </form>
+        <div id="user-icon">Sign In</div>
     </div>
-    <div id="sidenav">
-        <div id="logo" style="display: flex; align-items: center;">
-            <div id="sidenavlogo" style="cursor: pointer;" onclick="location.href = '#'"></div>
+    <section id="home-main">
+        <div id="sidenav">
+            <div id="logo" style="display: flex; align-items: center;">
+                <div id="sidenavlogo" style="cursor: pointer;" onclick="location.href = '#'"></div>
+            </div>
+            <div id="sidenav-links">
+                <div id="sidenavlink1">
+                    <div id="home-logo"><i class="fi fi-rr-home"></i></div>
+                    <div id="home-name">Home</div>
+                </div>
+                <div id="sidenavlink2">
+                    <div id="bot-logo"><i class="fi fi-rr-chatbot-speech-bubble"></i></div>
+                    MovieBOT
+                </div>
+                <div id="sidenavlink3">
+                    <div id="wallet-logo"><i class="fi fi-rr-wallet"></i></div>
+                    e-Wallet
+                </div>
+            </div>
         </div>
-        <div id="sidenav-links">
-            <div id="sidenavlink1" onclick="document.getElementById('banner').scrollIntoView({ behavior: 'smooth' });">
-                About</div>
-            <div id="sidenavlink2" onclick="document.getElementById('edu').scrollIntoView({ behavior: 'smooth' });">
-                Education</div>
-            <div id="sidenavlink3" onclick="document.getElementById('skills').scrollIntoView({ behavior: 'smooth' });">
-                Skills</div>
-            <div id="sidenavlink4" onclick="document.getElementById('exp').scrollIntoView({ behavior: 'smooth' });">
-                Experiences</div>
-            <div id="sidenavlink4" onclick="document.getElementById('prj').scrollIntoView({ behavior: 'smooth' });">
-                Projects</div>
-            <div id="sidenavlink5" onclick="document.getElementById('cert').scrollIntoView({ behavior: 'smooth' });">
-                Certificates</div>
+        <div id="movies-section">
+            <div id="locallang-mv-suggestion">
+                <div id="mv-cards-header">Demo Title</div>
+                <div id="mv-cards-all">
+                    <div id="mv-slide-icons">
+                        <i class="fi fi-sr-caret-square-left" onclick="document.getElementById('mv-cards').scrollBy({
+                    top: 0,
+                    left: -200,
+                    behavior: 'smooth'
+                })"></i>
+                        <i class="fi fi-sr-caret-circle-right" onclick="document.getElementById('mv-cards').scrollBy({
+                    top: 0,
+                    left: 200,
+                    behavior: 'smooth'
+                })"></i>
+                    </div>
+                    <div id="mv-cards">
+                        <div id="mv-card1">
+                            <div id="mv-blur-cover">
+                                <div id="mv-cover-name">Movie</div>
+                                <div id="mv-price-short">₹ 849/-</div>
+                            </div>
+                        </div>
+                        <div id="mv-card2">
+                            <div id="mv-blur-cover">
+                                <div id="mv-cover-name">Movie</div>
+                                <div id="mv-price-short">₹ 849/-</div>
+                            </div>
+                        </div>
+                        <div id="mv-card3">
+                            <div id="mv-blur-cover">
+                                <div id="mv-cover-name">Movie</div>
+                                <div id="mv-price-short">₹ 849/-</div>
+                            </div>
+                        </div>
+                        <div id="mv-card4">
+                            <div id="mv-blur-cover">
+                                <div id="mv-cover-name">Movie</div>
+                                <div id="mv-price-short">₹ 849/-</div>
+                            </div>
+                        </div>
+                        <div id="mv-card5">
+                            <div id="mv-blur-cover">
+                                <div id="mv-cover-name">Movie</div>
+                                <div id="mv-price-short">₹ 849/-</div>
+                            </div>
+                        </div>
+                        <div id="mv-card6">
+                            <div id="mv-blur-cover">
+                                <div id="mv-cover-name">Movie</div>
+                                <div id="mv-price-short">₹ 849/-</div>
+                            </div>
+                        </div>
+                        <div id="mv-card7">
+                            <div id="mv-blur-cover">
+                                <div id="mv-cover-name">Movie</div>
+                                <div id="mv-price-short">₹ 849/-</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="en-mv-suggestion">
+                <div id="mv-cards-header">Demo Title</div>
+                <div id="mv-cards-all">
+                    <div id="mv-slide-icons">
+                        <i class="fi fi-sr-caret-square-left" onclick="document.getElementById('mv-cards', this).scrollBy({
+                    top: 0,
+                    left: -200,
+                    behavior: 'smooth'
+                })"></i>
+                        <i class="fi fi-sr-caret-circle-right" onclick="document.getElementById('mv-cards', this).scrollBy({
+                    top: 0,
+                    left: 200,
+                    behavior: 'smooth'
+                })"></i>
+                    </div>
+                    <div id="mv-cards">
+                        <div id="mv-card1">
+                            <div id="mv-blur-cover">
+                                <div id="mv-cover-name">Movie</div>
+                                <div id="mv-price-short">₹ 849/-</div>
+                            </div>
+                        </div>
+                        <div id="mv-card2">
+                            <div id="mv-blur-cover">
+                                <div id="mv-cover-name">Movie</div>
+                                <div id="mv-price-short">₹ 849/-</div>
+                            </div>
+                        </div>
+                        <div id="mv-card3">
+                            <div id="mv-blur-cover">
+                                <div id="mv-cover-name">Movie</div>
+                                <div id="mv-price-short">₹ 849/-</div>
+                            </div>
+                        </div>
+                        <div id="mv-card4">
+                            <div id="mv-blur-cover">
+                                <div id="mv-cover-name">Movie</div>
+                                <div id="mv-price-short">₹ 849/-</div>
+                            </div>
+                        </div>
+                        <div id="mv-card5">
+                            <div id="mv-blur-cover">
+                                <div id="mv-cover-name">Movie</div>
+                                <div id="mv-price-short">₹ 849/-</div>
+                            </div>
+                        </div>
+                        <div id="mv-card6">
+                            <div id="mv-blur-cover">
+                                <div id="mv-cover-name">Movie</div>
+                                <div id="mv-price-short">₹ 849/-</div>
+                            </div>
+                        </div>
+                        <div id="mv-card7">
+                            <div id="mv-blur-cover">
+                                <div id="mv-cover-name">Movie</div>
+                                <div id="mv-price-short">₹ 849/-</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="preff1-suggestion">
+                <div id="mv-cards-header">Demo Title</div>
+                <div id="mv-cards-all">
+                    <div id="mv-slide-icons">
+                        <i class="fi fi-sr-caret-square-left" onclick="document.getElementById('mv-cards').scrollBy({
+                    top: 0,
+                    left: -200,
+                    behavior: 'smooth'
+                }, this)"></i>
+                        <i class="fi fi-sr-caret-circle-right" onclick="document.getElementById('mv-cards').scrollBy({
+                    top: 0,
+                    left: 200,
+                    behavior: 'smooth'
+                })"></i>
+                    </div>
+                    <div id="mv-cards">
+                        <div id="mv-card1">
+                            <div id="mv-blur-cover">
+                                <div id="mv-cover-name">Movie</div>
+                                <div id="mv-price-short">₹ 849/-</div>
+                            </div>
+                        </div>
+                        <div id="mv-card2">
+                            <div id="mv-blur-cover">
+                                <div id="mv-cover-name">Movie</div>
+                                <div id="mv-price-short">₹ 849/-</div>
+                            </div>
+                        </div>
+                        <div id="mv-card3">
+                            <div id="mv-blur-cover">
+                                <div id="mv-cover-name">Movie</div>
+                                <div id="mv-price-short">₹ 849/-</div>
+                            </div>
+                        </div>
+                        <div id="mv-card4">
+                            <div id="mv-blur-cover">
+                                <div id="mv-cover-name">Movie</div>
+                                <div id="mv-price-short">₹ 849/-</div>
+                            </div>
+                        </div>
+                        <div id="mv-card5">
+                            <div id="mv-blur-cover">
+                                <div id="mv-cover-name">Movie</div>
+                                <div id="mv-price-short">₹ 849/-</div>
+                            </div>
+                        </div>
+                        <div id="mv-card6">
+                            <div id="mv-blur-cover">
+                                <div id="mv-cover-name">Movie</div>
+                                <div id="mv-price-short">₹ 849/-</div>
+                            </div>
+                        </div>
+                        <div id="mv-card7">
+                            <div id="mv-blur-cover">
+                                <div id="mv-cover-name">Movie</div>
+                                <div id="mv-price-short">₹ 849/-</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="preff2-suggestion">
+                <div id="mv-cards-header">Demo Title</div>
+                <div id="mv-cards-all">
+                    <div id="mv-slide-icons">
+                        <i class="fi fi-sr-caret-square-left" onclick="document.getElementById('mv-cards').scrollBy({
+                    top: 0,
+                    left: -200,
+                    behavior: 'smooth'
+                })"></i>
+                        <i class="fi fi-sr-caret-circle-right" onclick="document.getElementById('mv-cards').scrollBy({
+                    top: 0,
+                    left: 200,
+                    behavior: 'smooth'
+                })"></i>
+                    </div>
+                    <div id="mv-cards">
+                        <div id="mv-card1">
+                            <div id="mv-blur-cover">
+                                <div id="mv-cover-name">Movie</div>
+                                <div id="mv-price-short">₹ 849/-</div>
+                            </div>
+                        </div>
+                        <div id="mv-card2">
+                            <div id="mv-blur-cover">
+                                <div id="mv-cover-name">Movie</div>
+                                <div id="mv-price-short">₹ 849/-</div>
+                            </div>
+                        </div>
+                        <div id="mv-card3">
+                            <div id="mv-blur-cover">
+                                <div id="mv-cover-name">Movie</div>
+                                <div id="mv-price-short">₹ 849/-</div>
+                            </div>
+                        </div>
+                        <div id="mv-card4">
+                            <div id="mv-blur-cover">
+                                <div id="mv-cover-name">Movie</div>
+                                <div id="mv-price-short">₹ 849/-</div>
+                            </div>
+                        </div>
+                        <div id="mv-card5">
+                            <div id="mv-blur-cover">
+                                <div id="mv-cover-name">Movie</div>
+                                <div id="mv-price-short">₹ 849/-</div>
+                            </div>
+                        </div>
+                        <div id="mv-card6">
+                            <div id="mv-blur-cover">
+                                <div id="mv-cover-name">Movie</div>
+                                <div id="mv-price-short">₹ 849/-</div>
+                            </div>
+                        </div>
+                        <div id="mv-card7">
+                            <div id="mv-blur-cover">
+                                <div id="mv-cover-name">Movie</div>
+                                <div id="mv-price-short">₹ 849/-</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="preff3-suggestion">
+                <div id="mv-cards-header">Demo Title</div>
+                <div id="mv-cards-all">
+                    <div id="mv-slide-icons">
+                        <i class="fi fi-sr-caret-square-left" onclick="document.getElementById('mv-cards').scrollBy({
+                    top: 0,
+                    left: -200,
+                    behavior: 'smooth'
+                })"></i>
+                        <i class="fi fi-sr-caret-circle-right" onclick="document.getElementById('mv-cards').scrollBy({
+                    top: 0,
+                    left: 200,
+                    behavior: 'smooth'
+                })"></i>
+                    </div>
+                    <div id="mv-cards">
+                        <div id="mv-card1">
+                            <div id="mv-blur-cover">
+                                <div id="mv-cover-name">Movie</div>
+                                <div id="mv-price-short">₹ 849/-</div>
+                            </div>
+                        </div>
+                        <div id="mv-card2">
+                            <div id="mv-blur-cover">
+                                <div id="mv-cover-name">Movie</div>
+                                <div id="mv-price-short">₹ 849/-</div>
+                            </div>
+                        </div>
+                        <div id="mv-card3">
+                            <div id="mv-blur-cover">
+                                <div id="mv-cover-name">Movie</div>
+                                <div id="mv-price-short">₹ 849/-</div>
+                            </div>
+                        </div>
+                        <div id="mv-card4">
+                            <div id="mv-blur-cover">
+                                <div id="mv-cover-name">Movie</div>
+                                <div id="mv-price-short">₹ 849/-</div>
+                            </div>
+                        </div>
+                        <div id="mv-card5">
+                            <div id="mv-blur-cover">
+                                <div id="mv-cover-name">Movie</div>
+                                <div id="mv-price-short">₹ 849/-</div>
+                            </div>
+                        </div>
+                        <div id="mv-card6">
+                            <div id="mv-blur-cover">
+                                <div id="mv-cover-name">Movie</div>
+                                <div id="mv-price-short">₹ 849/-</div>
+                            </div>
+                        </div>
+                        <div id="mv-card7">
+                            <div id="mv-blur-cover">
+                                <div id="mv-cover-name">Movie</div>
+                                <div id="mv-price-short">₹ 849/-</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div id="sidenav-icons"
-            onclick="document.getElementById('sidenav-links').style.transition = 'all 0.3s'; document.getElementById('sidenav-links').style.transform = 'translateX(-100%)';">
-        </div>
-        </sidenav>
+    </section>
 </body>
 
 </html>
