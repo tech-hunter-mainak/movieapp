@@ -31,11 +31,11 @@ function Chatbot() {
                             <ChatSection
                                 userquery={user_Query}
                                 message={bot_Reply}
-                                poster={prev_chats[i+1].poster}
-                                title={prev_chats[i+1].mv_title}
-                                release={prev_chats[i+1].mv_release_dt}
-                                genre={prev_chats[i+1].mv_genre}
-                                actor={prev_chats[i+1].mv_actors}
+                                poster={prev_chats[i + 1].poster}
+                                title={prev_chats[i + 1].mv_title}
+                                release={prev_chats[i + 1].mv_release_dt}
+                                genre={prev_chats[i + 1].mv_genre}
+                                actor={prev_chats[i + 1].mv_actors}
                             /><br />
                         </React.Fragment>
                     );
@@ -47,6 +47,16 @@ function Chatbot() {
         };
 
         fetchPrevChats();
+        document.getElementById('chat-window').style.height = String(window.innerHeight - 110) + 'px';
+        const chatWindow = document.getElementById('ai-window');
+        if (chatWindow) {
+            console.log("first")
+            chatWindow.scrollBy({
+                top: 1000000,
+                left: 0,
+                behavior: 'smooth'
+            })
+        }
     }, []);
 
     const handleSubmit = async (e) => {
@@ -85,6 +95,17 @@ function Chatbot() {
         } catch (err) {
             console.error("An error occurred while fetching bot response", err);
         }
+        setTimeout(() => {
+            const chatWindow = document.getElementById('ai-window');
+            if (chatWindow) {
+                console.log("first")
+                chatWindow.scrollBy({
+                    top: 1000000,
+                    left: 0,
+                    behavior: 'smooth'
+                })
+            }
+        }, 1000);
     };
 
     const ChatSection = ({ userquery, message, poster, title, release, genre, actor }) => {
@@ -141,7 +162,16 @@ function Chatbot() {
 
     return (
         <React.Fragment>
-            <div id="chat-window">
+            <div id="chat-window" onLoad={()=>{setTimeout(() => {
+            const chatWindow = document.getElementById('ai-window');
+            if (chatWindow) {
+                console.log("first")
+                chatWindow.scrollBy({
+                    top: 1000000,
+                    left: 0
+                })
+            }
+        }, 0);}}>
                 <div id="notice">* Disclaimer! This movie suggestion AI is in experimental phase and may produce wrong result.*</div>
                 <div id="ai-window">
                     {chats}

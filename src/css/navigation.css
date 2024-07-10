@@ -11,6 +11,7 @@ body {
     background-color: #242424;
     max-height: 100vh;
     display: flex;
+    overflow-x: hidden;
     flex-direction: column;
 }
 
@@ -23,7 +24,7 @@ body {
     display: flex;
     font-weight: 600;
     transition: all 0.3s ease-in;
-    position: static;
+    position: sticky;
     justify-content: space-between;
     top: 0;
     z-index: 8;
@@ -35,7 +36,7 @@ body {
     height: auto;
     display: flex;
     align-items: center;
-    margin-right: 10px;
+    margin-right: 20px;
     cursor: pointer;
 }
 
@@ -170,7 +171,6 @@ body {
 }
 
 #home-main {
-    height: 100vh;
     position: static;
     overflow-x: hidden;
 }
