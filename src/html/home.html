@@ -209,18 +209,17 @@
         margin: 10px 20px;
         height: 300px;
         display: flex;
-        background-color: #bebebe;
+        background: linear-gradient(45deg, rgb(149, 0, 0),rgba(113, 0, 0, 0.427),rgba(100, 100, 100, 0.313));
         width: auto;
         justify-content: space-between;
-        border-radius: 6px;
+        border-radius: 15px;
         display: flex;
+        box-shadow: -6px 4px 20px black;
     }
 
     #movies-section>div:last-child {
         margin-bottom: 80px;
     }
-
-    #movies-section>div>div {}
 
     #movies-section>div>div:first-child {
         min-width: max(200px, 25%) !important;
@@ -273,6 +272,24 @@
         justify-content: flex-end;
         color: #424242;
         gap: 10px;
+    }
+
+    #mv-cards-header {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        justify-content: center;
+        margin-left: 20px;
+        color: aliceblue;
+    }
+
+    #mv-sg-type {
+        font-size: 26px;
+        font-weight: 600;
+    }
+
+    #mv-sg-text {
+        font-size: small;
     }
 </style>
 
@@ -378,7 +395,10 @@
                 </div>
             </div>
             <div id="en-mv-suggestion">
-                <div id="mv-cards-header">Demo Title</div>
+                <div id="mv-cards-header">
+                    <div id="mv-sg-type">Suggested Movies</div>
+                    <div id="mv-sg-text">We would like to suggest you these movies. You can also purchase them.</div>
+                </div>
                 <div id="mv-cards-all">
                     <div id="mv-slide-icons">
                         <i class="fi fi-sr-caret-square-left" onclick="document.getElementById('mv-cards', this).scrollBy({

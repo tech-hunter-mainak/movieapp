@@ -18,7 +18,7 @@ function SideNav({ sendData }) {
                         <div id="bot-logo"><i className="fi fi-rr-chatbot-speech-bubble"></i></div>
                         MovieBOT
                     </div>
-                    <div id="sidenavlink3">
+                    <div id="sidenavlink3" onClick={() => { navigate('/transactions') }}>
                         <div id="wallet-logo"><i className="fi fi-rr-wallet"></i></div>
                         e-Wallet
                     </div>

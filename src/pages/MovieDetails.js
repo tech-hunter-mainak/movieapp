@@ -1,16 +1,91 @@
-import React from 'react'
-import SideNav from '../components/SideNav'
-import TopNav from '../components/TopNav'
+import React, { useEffect, useState } from 'react';
+import SideNav from '../components/SideNav';
+import TopNav from '../components/TopNav';
+import "../css/moviesearch.css";
 
-function MovieDetails(movie_details) {
+function MovieDetails() {
+    const [movieData, setMovieData] = useState(null);
+
+    function getCookie(cname) {
+        let name = cname + "=";
+        let ca = document.cookie.split(';');
+        for (let i = 0; i < ca.length; i++) {
+            let c = ca[i];
+            while (c.charAt(0) === ' ') {
+                c = c.substring(1);
+            }
+            if (c.indexOf(name) === 0) {
+                return c.substring(name.length, c.length);
+            }
+        }
+        return "";
+    }
+
+    useEffect(() => {
+        try {
+            const cookieData = getCookie('fulldata');
+            const parsedData = JSON.parse(cookieData);
+            setMovieData(parsedData);
+        } catch (error) {
+            console.error('Error parsing cookie data:', error);
+        }
+    }, []);
+
+    if (!movieData) {
+        return <div>Loading...</div>;
+    }
+
     return (
         <React.Fragment>
             <TopNav />
-            <section id='moviedetails'>
-                <SideNav />
-            </section>
+            <SideNav />
+            <main id="moviedetails" style={{ "backgroundImage": "url('" + movieData.Poster + "')" }}>
+                <div id="backdropshade">
+                    <div id="backshade">
+                        <div id="poster"><img src={movieData.Poster} alt={movieData.Title} /></div>
+                        <div id="poster-details">
+                            <div id="movie-name">{movieData.Title}</div>
+                            <div id="movie-pre-details">
+                                <span id="released-year">{movieData.Year}&nbsp;</span>
+                                <span>•&nbsp;</span>
+                                <span id="production">{movieData.Production || 'Unknown Production'}</span>
+                            </div>
+                            <div id="base-details">
+                                <div id="star-rating">
+                                    <div id="star-cnt">
+                                        <span id="star-num">{movieData.imdbRating}</span>
+                                        <span id="star-logo">&bigstar;</span>
+                                    </div>
+                                    <div id="star-text">Average</div>
+                                </div>
+                                <div id="total-ratings">
+                                    <div id="total-rating-num">{movieData.imdbVotes}</div>
+                                    <div id="total-rating-text">Ratings</div>
+                                </div>
+                                <div id="movie-rated">{movieData.Rated}</div>
+                            </div>
+                            <div id="short-description">{movieData.Plot}</div>
+                            <button id="purchase-btn">
+                                <div id="purchase">Buy</div>
+                                <div id="pricing">
+                                    <div id="prev-price"><del>2800</del></div>
+                                    <div id="current-price">1980</div>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div id="more">
+                    <div id="additional-details">
+                        <div id="additional-details-header">Additional Details</div>
+                        <div id="additional-details-content">
+                            {/* Add any additional movie details here */}
+                        </div>
+                    </div>
+                </div>
+            </main>
         </React.Fragment>
-    )
+    );
 }
 
-export default MovieDetails
+export default MovieDetails;

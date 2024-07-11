@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet'
+        href='https://cdn-uicons.flaticon.com/2.4.2/uicons-solid-rounded/css/uicons-solid-rounded.css'>
     <title>Document</title>
 </head>
 <style>
@@ -15,9 +17,54 @@
         font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     }
 
+    body {
+        background-color: rgb(255, 255, 255);
+    }
+
     #signup {
         min-height: 100vh;
         min-width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #signup>form {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        width: max(40vw, 300px);
+    }
+
+    #signup-details,
+    #card-reg-details {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    #usr-fullname {
+        display: flex;
+        flex-direction: row;
+    }
+
+    #usr-fullname>div {
+        width: 100%;
+    }
+
+    input:not([type=radio]),
+    button {
+        padding: 10px;
+        width: 100%;
+        border: 3px solid sienna;
+    }
+
+    button {
+        margin: 14px;
+    }
+
+    #signup-details>div>input {
+        width: 100%;
     }
 </style>
 
@@ -25,6 +72,7 @@
     <section id="signup">
         <form id="usersignup">
             <div id="signup-details">
+                <div id="signup-header">Sign Up Details</div>
                 <div id="usr-fullname">
                     <div id="usrfname"><input type="text" placeholder="First Name"></div>
                     <div id="usrlname"><input type="text" placeholder="Last Name"></div>
@@ -33,14 +81,20 @@
                 <div id="usrmail"><input type="email" placeholder="Email"></div>
                 <div id="usrpass"><input type="password" placeholder="Password"></div>
             </div>
+            <div id="payment-method">Before continue you need to enter a payment method. Please choose a suitable
+                payment method.</div>
+            <div id="payment-type">
+                <label for="paymenttype">Card</label><input type="radio" name="paymenttype" id="pay-type" value="card">
+                <label for="paymenttype">Bank</label><input type="radio" name="paymenttype" id="pay-type" value="bank">
+            </div>
             <div id="card-reg-details">
+                <div id="card-header-details">Card Details</div>
+                <div id="usrname"><input type="text" placeholder="Card Number"></div>
+                <div id="usrname"><input type="text" placeholder="Card Holder's Full Name"></div>
                 <div id="usr-fullname">
-                    <div id="usrfname"><input type="text" placeholder="First Name"></div>
-                    <div id="usrlname"><input type="text" placeholder="Last Name"></div>
+                    <div id="usrfname"><input type="text" placeholder="MM/YY"></div>
+                    <div id="usrlname"><input type="text" placeholder="CVV/Security Code on Card's Back"></div>
                 </div>
-                <div id="usrname"><input type="text" placeholder="Username"></div>
-                <div id="usrmail"><input type="email" placeholder="Email"></div>
-                <div id="usrpass"><input type="password" placeholder="Password"></div>
             </div>
             <button type="submit" id="register-btn">Save & Register</button>
         </form>
