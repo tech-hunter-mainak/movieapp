@@ -1,70 +1,45 @@
-# Getting Started with Create React App
+# MovieApp
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+MovieApp is a web application that allows users to browse and explore various movies. This project includes a React frontend and an Express backend with a SQL database. First download the full repo from github.
 
-## Available Scripts
+## Getting Started
 
-In the project directory, you can run:
+Follow the instructions below to set up and run the project on your local machine.
 
-### `npm start`
+### Prerequisites
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Node.js and npm (https://nodejs.org/)
+- XAMPP (https://www.apachefriends.org/index.html)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Installation
 
-### `npm test`
+1. **Download and Install XAMPP Server:**
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+   Download and install XAMPP from [here](https://www.apachefriends.org/index.html). After installation, start the Apache and MySQL modules from the XAMPP control panel.
 
-### `npm run build`
+2. **Create Database:**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+   - Open XAMPP control panel and click on 'Admin' button for MySQL. This will open phpMyAdmin.
+   - Create a new database named `movieapp`.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+3. **Import SQL Dumps:**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+   - Go to the `sql` folder where all SQL dump files are located.
+   - Import these dumps into the `movieapp` database you just created.
 
-### `npm run eject`
+4. **Set Up Server:**
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+   - Navigate to the `/server` folder in your project directory.
+   - Run `npm install` to install all necessary dependencies.
+   - Run `npm start` to start the server.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+5. **Set Up Client:**
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+   - Navigate to the main project directory.
+   - Run `npm install` to install all necessary dependencies.
+   - Run `npm start` to start the React application.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+6. **Access the Application:**
 
-## Learn More
+   - Open your browser and go to `http://localhost:3000`.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
