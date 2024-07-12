@@ -136,6 +136,16 @@
     top: 20px;
     margin: 20px 20px 20px 5px;
     width: 30% !important;
+    color: aliceblue;
+}
+
+#trside2 svg rect{
+    fill: none;
+    color: aliceblue;
+}
+
+#trside2 svg text{
+    fill: aliceblue !important;
 }
 
 #tr-history-text {

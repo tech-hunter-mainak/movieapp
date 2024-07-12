@@ -2,9 +2,11 @@ import React, { useEffect, useState } from 'react';
 import SideNav from '../components/SideNav';
 import TopNav from '../components/TopNav';
 import "../css/moviesearch.css";
+import { useNavigate } from 'react-router-dom';
 
 function MovieDetails() {
     const [movieData, setMovieData] = useState(null);
+    const navigate = useNavigate()
 
     function getCookie(cname) {
         let name = cname + "=";
@@ -53,8 +55,8 @@ function MovieDetails() {
                             <div id="base-details">
                                 <div id="star-rating">
                                     <div id="star-cnt">
-                                        <span id="star-num">{movieData.imdbRating}</span>
-                                        <span id="star-logo">&bigstar;</span>
+                                        <span id="star-num">{movieData.imdbRating}/10</span>
+                                        <span id="star-logo">&nbsp;★</span>
                                     </div>
                                     <div id="star-text">Average</div>
                                 </div>
@@ -62,15 +64,10 @@ function MovieDetails() {
                                     <div id="total-rating-num">{movieData.imdbVotes}</div>
                                     <div id="total-rating-text">Ratings</div>
                                 </div>
-                                <div id="movie-rated">{movieData.Rated}</div>
                             </div>
                             <div id="short-description">{movieData.Plot}</div>
-                            <button id="purchase-btn">
-                                <div id="purchase">Buy</div>
-                                <div id="pricing">
-                                    <div id="prev-price"><del>2800</del></div>
-                                    <div id="current-price">1980</div>
-                                </div>
+                            <button id="purchase-btn" onClick={()=>{navigate('/movie/purchase')}}>
+                                <div id="purchase">Purchase</div>
                             </button>
                         </div>
                     </div>

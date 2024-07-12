@@ -1,14 +1,56 @@
-import React, { useEffect } from 'react'
-import "../css/transaction.css"
-import TopNav from '../components/TopNav'
-import SideNav from '../components/SideNav'
+import React, { useEffect } from 'react';
+import "../css/transaction.css";
+import TopNav from '../components/TopNav';
+import SideNav from '../components/SideNav';
 
 function Transactions() {
-    useEffect(()=>{
-        document.getElementById('transaction-section').style.maxHeight = String(window.innerHeight - 70) + 'px'
-        document.getElementById('transaction-section').style.minHeight = String(window.innerHeight - 70) + 'px'
-        document.getElementById('transaction-section').style.height = String(window.innerHeight - 70) + 'px'
-    },[])
+    useEffect(() => {
+        const setTransactionSectionHeight = () => {
+            const height = window.innerHeight - 70;
+            const transactionSection = document.getElementById('transaction-section');
+            transactionSection.style.maxHeight = `${height}px`;
+            transactionSection.style.minHeight = `${height}px`;
+            transactionSection.style.height = `${height}px`;
+        };
+
+        setTransactionSectionHeight();
+        window.addEventListener('resize', setTransactionSectionHeight);
+
+        const loadGoogleCharts = () => {
+            const script = document.createElement('script');
+            script.src = "https://www.gstatic.com/charts/loader.js";
+            script.onload = () => {
+                window.google.charts.load('current', { 'packages': ['corechart'] });
+                window.google.charts.setOnLoadCallback(drawChart);
+            };
+            document.body.appendChild(script);
+        };
+
+        const drawChart = () => {
+            const data = new window.google.visualization.DataTable();
+            data.addColumn('string', 'Money Added');
+            data.addColumn('number', 'Money Spend');
+            data.addRows([
+                ['Spend', 30],
+                ['Added', 70]
+            ]);
+
+            const options = {
+                title: 'Money expanses analysis',
+                sliceVisibilityThreshold: 0.2,
+            };
+
+            const chart = new window.google.visualization.PieChart(document.getElementById('chart_div'));
+            chart.draw(data, options);
+        };
+
+        loadGoogleCharts();
+
+        return () => {
+            window.removeEventListener('resize', setTransactionSectionHeight);
+        };
+    }, []);
+
     return (
         <React.Fragment>
             <TopNav />
@@ -40,7 +82,6 @@ function Transactions() {
                     </div>
                     <div id="tr-history">
                         <div id="tr-history-text">Transaction History</div>
-                        <div id="tr-month">Feb 2024</div>
                         <div id="tr-details-cards">
                             <div id="tr-details-card">
                                 <div id="tr-amount">+Rs. 230/-</div>
@@ -62,7 +103,7 @@ function Transactions() {
                 </div>
             </section>
         </React.Fragment>
-    )
+    );
 }
 
-export default Transactions
+export default Transactions;

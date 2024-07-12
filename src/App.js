@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import "./css/navigation.css"
 import MovieDetails from './pages/MovieDetails';
 import Transactions from './pages/Transactions';
+import Purchase from './pages/Purchase';
 
 
 function App() {
@@ -13,7 +14,7 @@ function App() {
       <Routes>
         <Route path='/' Component={Home}></Route>
         <Route path='/movie' Component={MovieDetails}></Route>
-        <Route path='/payment' Component={MovieDetails}></Route>
+        <Route path='/movie/purchase' Component={Purchase}></Route>
         <Route path='/account' Component={MovieDetails}></Route>
         <Route path='/transactions' Component={Transactions}></Route>
       </Routes>
